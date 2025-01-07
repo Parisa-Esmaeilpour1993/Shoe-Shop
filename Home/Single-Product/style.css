@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: inter;
+  src: url("../../assets/fonts/Inter/static/Inter_18pt-Regular.ttf");
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: inter;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightgray;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 320px;
+  height: auto;
+}
+
+.swiper-pagination-bullet {
+  background: darkgray;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  opacity: 0.8;
+}
+
+.swiper-pagination-bullet-active {
+  background: black;
+  width: 24px;
+  opacity: 1;
+}
+
+.swiper-pagination {
+  margin-bottom: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.text-below-pagination {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 16px;
+  color: #000;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+button.btn-disabled {
+  color: #888;
+  cursor: not-allowed;
+}
+
+.selected-size {
+  background-color: black;
+  color: white !important;
+  transform: scale(1.2);
+  transition: transform 0.5s ease-in-out, background-color 0.5s ease;
+}
+
+.selected-color {
+  position: relative;
+}
+
+.selected-color::after {
+  content: "✔";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.5rem;
+}
+
+.selected-color.white-color::after {
+  color: black;
+}
+
+.toast {
+  position: fixed;
+  top: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4fda6f;
+  color: white;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 16px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s;
+  width: 300px;
+  text-align: center;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+}

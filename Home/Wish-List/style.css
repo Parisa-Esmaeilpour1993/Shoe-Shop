@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "inter";
+  src: url("");
+}
+
+body {
+  font-family: "inter";
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

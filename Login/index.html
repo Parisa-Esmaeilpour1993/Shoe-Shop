@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Login Page</title>
+  </head>
+  <body>
+    <!-- return button -->
+    <button id="back-button">
+      <img
+        src="../../assets/images/arrow-left-short.svg"
+        alt="back button"
+        class="w-8 h-8 ml-3 mt-3"
+      />
+    </button>
+
+    <div class="flex flex-col">
+      <img
+        src="../../assets/images/Vector 1.svg"
+        alt="logo"
+        class="w-[54px] h-[81px] self-center mt-32 mb-28"
+      />
+      <p class="self-center mb-20 text-[32px] font-semibold">
+        Login to Your Account
+      </p>
+
+      <div class="flex flex-col gap-5">
+        <div
+          class="flex items-center ml-6 mb-2 w-[380px] bg-[#FAFAFA] px-3 rounded-md focus-within:border-2 focus-within:border-gray-900"
+        >
+          <div>
+            <img
+              src="../../assets/images/input-prefix.svg"
+              alt="Email-image"
+              class="w-4"
+            />
+          </div>
+          <div class="p-1">
+            <input
+              id="email-input"
+              type="email"
+              placeholder="Email"
+              class="outline-none bg-[#FAFAFA] p-2 text-xl"
+            />
+          </div>
+        </div>
+        <div
+          class="flex items-center justify-between ml-6 mb-2 w-[380px] bg-[#FAFAFA] rounded-md focus-within:border-2 focus-within:border-gray-900"
+        >
+          <div class="flex items-center px-3">
+            <div>
+              <img
+                src="../../assets/images/lock-fill.svg"
+                alt="lock-password"
+                class="w-4"
+              />
+            </div>
+            <div class="p-1">
+              <input
+                id="password-input"
+                type="password"
+                placeholder="Password"
+                class="outline-none bg-[#FAFAFA] p-2 text-xl"
+              />
+            </div>
+          </div>
+
+          <button id="toggle-password-btn" type="button">
+            <img
+              src="../../assets/images/input-suffix.svg"
+              alt="show-hidden icon"
+              class="mr-2 h-6"
+            />
+          </button>
+        </div>
+
+        <!-- create a div for error in login -->
+        <div id="error-section" class="text-center text-red-700 hidden">
+          "your password or email is incorrect."
+        </div>
+      </div>
+
+      <div id="remember-section" class="flex gap-2 mb-40 justify-center">
+        <input type="checkbox" />
+        <p>Remember me</p>
+      </div>
+
+      <button
+        id="sign-in-btn"
+        class="w-[380px] fixed bottom-10 py-3 ml-6 bg-gray-400 text-white rounded-[30px] opacity-50 cursor-not-allowed"
+        disabled
+      >
+        Sign In
+      </button>
+    </div>
+
+    <!-- Create a Toast div -->
+    <div
+      id="message-section"
+      class="hidden fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-100 border border-green-600 text-green-800 px-4 py-3 rounded-md text-lg"
+    >
+      <span id="message-text"></span>
+    </div>
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>

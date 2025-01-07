@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Shipping Address</title>
+  </head>
+  <body>
+    <div class="bg-gray-50">
+      <div class="flex justify-between mx-6 pt-3 mb-4">
+        <div class="font-bold">9:41</div>
+        <div>
+          <img
+            src="../../assets/images/mobileIcons.png"
+            alt="mobileIcons"
+            class="h-6 mix-blend-multiply"
+          />
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 ml-4 py-4 mb-2">
+        <button id="return-back">
+          <img
+            src="../../assets/images/arrow-left-short.svg"
+            alt="return back"
+          />
+        </button>
+        <span class="font-semibold text-2xl text-[#152536]"
+          >Shipping Address</span
+        >
+      </div>
+
+      <div class="shipping-address overflow-y-auto max-h-[620px] mb-6">
+        <div class="flex flex-col gap-6 px-6 mb-6">
+          <div
+            class="shipping-box bg-white rounded-3xl px-6 py-4 flex justify-between items-center shadow-md"
+          >
+            <div class="flex gap-4 items-center">
+              <img
+                src="../../assets/images/location-filled-svgrepo-com.svg"
+                alt="Location"
+                class="h-16 border-8 border-gray-300 rounded-full"
+              />
+              <div>
+                <div class="flex gap-2">
+                  <div class="shipping-name text-lg font-semibold">
+                    Address Title
+                  </div>
+                  <div
+                    class="bg-gray-200 rounded-md px-2 py-1 w-20 text-center"
+                  >
+                    Default
+                  </div>
+                </div>
+                <div class="shipping-address text-gray-300">Address Detail</div>
+              </div>
+            </div>
+            <div>
+              <input type="radio" name="address" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- modal -->
+      <div
+        id="overlay-modal"
+        class="fixed top-0 left-0 bg-gray-300/50 w-full h-screen z-10 hidden"
+      >
+        <div id="content-modal">
+          <div
+            class="fixed top-5 right-6 w-7 h-7 border-[2px] border-black/70"
+            id="close-modal"
+          >
+            <button>❌</button>
+          </div>
+          <label for="title" class="font-bold text-2xl"> New Address: </label>
+          <input
+            type="text"
+            placeholder="Address Title..."
+            class="title-input border-2 border-gray-400 p-2 outline-2 outline-gray-900 my-4 text-xl"
+          />
+
+          <textarea
+            name=""
+            id=""
+            placeholder="Details of Address"
+            class="border-2 border-gray-400 p-2 outline-2 outline-gray-900 w-full text-xl"
+          ></textarea>
+          <button
+            class="ml-24 w-1/2 py-3 border-2 rounded-3xl bg-black text-white outline-none cursor-pointer fixed bottom-0 left-0 my-4 text-xl font-bold"
+            id="save-address"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+
+      <div class="px-6 my-2" id="add-address">
+        <button class="bg-gray-300 w-full p-4 rounded-full text-lg">
+          Add New Address
+        </button>
+      </div>
+
+      <div class="px-6 mb-6 fixed bottom-0 w-full">
+        <button
+          class="bg-black w-full py-4 rounded-full text-white text-lg"
+          id="apply-btn"
+        >
+          Apply
+        </button>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

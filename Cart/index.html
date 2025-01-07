@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>My Cart</title>
+    <style>
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      @font-face {
+        font-family: inter;
+        src: url(../assets/fonts/Inter/static/Inter_18pt-Medium.ttf);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-gray-100 min-h-screen font-inter">
+      <header
+        class="fixed top-0 left-0 w-full h-[110px] z-10 shadow-md bg-gray-100"
+      >
+        <div class="flex justify-between mx-6 pt-3">
+          <div class="font-bold">9:41</div>
+          <div>
+            <img
+              src="../../assets/images/mobileIcons.png"
+              alt="mobileIcons"
+              class="h-6 mix-blend-multiply"
+            />
+          </div>
+        </div>
+        <div class="flex justify-between items-center">
+          <div class="flex gap-3 ml-6 py-4 mb-2">
+            <img
+              src="../assets/images/logo.png"
+              alt="logo"
+              class="mt-1 mix-blend-multiply"
+            />
+            <span class="font-semibold text-2xl text-[#152536]">My Card</span>
+          </div>
+          <div class="mr-6">
+            <img
+              src="../assets/images/input-search.svg"
+              alt="search-icon"
+              class="size-6"
+            />
+          </div>
+        </div>
+      </header>
+
+      <main class="overflow-y-auto mt-[110px] max-h-[750px]"></main>
+
+      <!-- modal -->
+      <div
+        id="overlay"
+        class="fixed top-0 left-0 w-full h-full bg-gray-400/50 z-10 hidden"
+      >
+        <div
+          id="content-modal"
+          class="fixed left-0 bottom-0 w-full h-50 bg-gray-50 rounded-t-3xl p-6 z-99"
+        ></div>
+      </div>
+
+      <footer
+        class="w-[428px] h-44 fixed bottom-0 flex flex-col bg-gray-50 rounded-t-[40px] border-[2px]"
+      >
+        <div class="flex justify-between px-8 py-6 items-center shadow-sm">
+          <div class="flex flex-col gap-2">
+            <div class="text-gray-500">Total price</div>
+            <div class="font-semibold text-xl">
+              $<span id="totalPrice"></span>
+            </div>
+          </div>
+          <button
+            class="bg-black rounded-3xl px-20 py-3 text-white shadow-2xl"
+            id="checkoutBtn"
+          >
+            Checkout
+          </button>
+        </div>
+        <div class="flex justify-evenly mt-3">
+          <button
+            class="footer-btn flex flex-col gap-[2px] items-center justify-center"
+            id="homeBtn"
+            onclick="setActive(this)"
+          >
+            <img
+              src="../assets/images/home.png"
+              alt="Home"
+              class="h-6 icon-img default-img"
+            />
+            <img
+              src="../assets/images/home-select.svg"
+              alt="Home"
+              class="h-6 icon-img selected-img hidden"
+            />
+            <div>Home</div>
+          </button>
+          <button
+            class="footer-btn flex flex-col gap-[2px] items-center justify-center"
+            id="cartBtn"
+            onclick="setActive(this)"
+          >
+            <img
+              src="../assets/images/cart.svg"
+              alt="Cart"
+              class="h-6 icon-img default-img hidden"
+            />
+            <img
+              src="../assets/images/cart-select.png"
+              alt="Cart"
+              class="h-6 icon-img selected-img"
+            />
+            <div>Cart</div>
+          </button>
+          <button
+            class="footer-btn flex flex-col gap-[2px] items-center justify-center"
+            id="orderBtn"
+            onclick="setActive(this)"
+          >
+            <img
+              src="../assets/images/Order.png"
+              alt="Orders"
+              class="h-6 icon-img default-img"
+            />
+            <img
+              src="../assets/images/orders-select.png"
+              alt="Orders"
+              class="h-6 icon-img selected-img hidden"
+            />
+            <div>Orders</div>
+          </button>
+          <button
+            class="footer-btn flex flex-col gap-[2px] items-center justify-center"
+            id="walletBtn"
+            onclick="setActive(this)"
+          >
+            <img
+              src="../assets/images/wallet-fill.svg"
+              alt="Wallet"
+              class="h-6 icon-img default-img"
+            />
+            <img
+              src="../assets/images/wallet-select.png"
+              alt="Wallet"
+              class="h-6 icon-img selected-img hidden"
+            />
+            <div>Wallet</div>
+          </button>
+          <button
+            class="footer-btn flex flex-col gap-[2px] items-center justify-center"
+            id="profileBtn"
+            onclick="setActive(this)"
+          >
+            <img
+              src="../assets/images/profile-fill.svg"
+              alt="Profile"
+              class="h-6 icon-img default-img"
+            />
+            <img
+              src="../assets/images/profile-select.png"
+              alt="Profile"
+              class="h-6 icon-img selected-img hidden"
+            />
+            <div>Profile</div>
+          </button>
+        </div>
+      </footer>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

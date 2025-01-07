@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Shipping Address</title>
+  </head>
+  <body>
+    <div class="bg-gray-50 h-screen">
+      <div class="flex justify-between mx-6 pt-3 mb-4">
+        <div class="font-bold">9:41</div>
+        <div>
+          <img
+            src="../../assets/images/mobileIcons.png"
+            alt="mobileIcons"
+            class="h-6 mix-blend-multiply"
+          />
+        </div>
+      </div>
+
+      <div class="flex justify-between ml-4 mr-6 py-4 mb-2">
+        <div class="flex gap-2">
+          <a href="../index.html">
+            <button>
+              <img
+                src="../../assets/images/arrow-left-short.svg"
+                alt="return back"
+              />
+            </button>
+          </a>
+          <span class="font-semibold text-2xl text-[#152536]"
+            >Payment Methods</span
+          >
+        </div>
+        <div
+          class="w-8 h-9 rounded-xl border-2 border-gray-600 text-center font-bold text-xl"
+          id="add-method"
+        >
+          +
+        </div>
+      </div>
+      <div class="ml-6 mb-6">Select the payment method you want to use.</div>
+
+      <div class="method-container overflow-y-auto max-h-[620px] mb-6">
+        <div class="flex flex-col gap-6 px-6 mb-6">
+          <div
+            class="bg-white rounded-2xl py-4 px-5 flex justify-between items-center shadow-md"
+          >
+            <div class="flex gap-4 items-center">
+              <img
+                src="../../assets/images/wallet.svg"
+                alt="Payment method icon"
+                class="h-12"
+              />
+
+              <div class="text-lg font-semibold">My Wallet</div>
+            </div>
+            <div class="flex gap-2 items-center">
+              <div class="text-lg">$9.379</div>
+              <div>
+                <input type="radio" name="address" class="mt-2" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-6 px-6 mb-6">
+          <div
+            class="bg-white rounded-2xl py-4 px-5 flex justify-between items-center shadow-md"
+          >
+            <div class="flex gap-4 items-center">
+              <img
+                src="../../assets/images/paypal.svg"
+                alt="Payment method icon"
+                class="h-12"
+              />
+
+              <div class="text-lg font-semibold">PayPal</div>
+            </div>
+            <div class="flex gap-2 items-center">
+              <input type="radio" name="address" class="mt-2" />
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-6 px-6 mb-6">
+          <div
+            class="bg-white rounded-2xl py-4 px-5 flex justify-between items-center shadow-md"
+          >
+            <div class="flex gap-4 items-center">
+              <img
+                src="../../assets/images/google.svg"
+                alt="Payment method icon"
+                class="h-12"
+              />
+
+              <div class="text-lg font-semibold">Google Pay</div>
+            </div>
+            <div class="flex gap-2 items-center">
+              <input type="radio" name="address" class="mt-2" />
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-6 px-6 mb-6">
+          <div
+            class="bg-white rounded-2xl py-4 px-5 flex justify-between items-center shadow-md"
+          >
+            <div class="flex gap-4 items-center">
+              <img
+                src="../../assets/images/apple.svg"
+                alt="Payment method icon"
+                class="h-12 w-12 rounded-full"
+              />
+
+              <div class="text-lg font-semibold">Apple</div>
+            </div>
+            <div class="flex gap-2 items-center">
+              <input type="radio" name="address" class="mt-2" />
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-6 px-6 mb-6">
+          <div
+            class="bg-white rounded-2xl py-4 px-5 flex justify-between items-center shadow-md"
+          >
+            <div class="flex gap-4 items-center">
+              <img
+                src="../../assets/images/mastercard.svg"
+                alt="Payment method icon"
+                class="h-12 w-12 rounded-full"
+              />
+
+              <div class="text-lg font-semibold">---- ---- ---- 4679</div>
+            </div>
+            <div class="flex gap-2 items-center">
+              <input type="radio" name="address" class="mt-2" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- modal -->
+      <div
+        id="overlay-modal"
+        class="fixed top-0 left-0 bg-gray-300/50 w-full h-screen z-10 hidden"
+      >
+        <div
+          id="content-modal"
+          class="absolute inset-0 bg-gradient-to-t from-black/10 to-black/60"
+        >
+          <div
+            class="fixed top-5 right-6 w-7 h-7 border-[2px] border-black/70"
+            id="closeModal"
+          >
+            <button>❌</button>
+          </div>
+          <label for="title" class="text-2xl font-semibold">
+            New Method:
+          </label>
+          <br />
+          <input
+            type="text"
+            placeholder="Write Here..."
+            class="w-full border-2 border-gray-400 p-2 outline-2 outline-gray-900 mt-4 text-red-700 text-xl"
+            id="method-input"
+          />
+
+          <button
+            class="ml-24 w-1/2 py-2 border-2 rounded-3xl bg-black text-white outline-none cursor-pointer fixed bottom-0 left-0 my-4 text-xl font-semibold"
+            id="addBtn"
+          >
+            Add
+          </button>
+        </div>
+      </div>
+
+      <a href="../Order Successful/index.html">
+        <div class="px-6 mb-8 fixed bottom-0 w-full">
+          <button class="bg-black w-full py-4 rounded-full text-white text-lg">
+            Confirm Payment
+          </button>
+        </div>
+      </a>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

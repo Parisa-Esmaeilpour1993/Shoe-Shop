@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Shipping Address</title>
+  </head>
+  <body>
+    <div class="bg-gray-50">
+      <div class="flex justify-between mx-6 pt-3 mb-4">
+        <div class="font-bold">9:41</div>
+        <div>
+          <img
+            src="../../assets/images/mobileIcons.png"
+            alt="mobileIcons"
+            class="h-6 mix-blend-multiply"
+          />
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 ml-4 py-4 mb-2">
+        <a href="../index.html">
+          <button>
+            <img
+              src="../../assets/images/arrow-left-short.svg"
+              alt="return back"
+            />
+          </button>
+        </a>
+        <span class="font-semibold text-2xl text-[#152536]"
+          >Choose Shipping</span
+        >
+      </div>
+
+      <div class="mb-6">
+        <div class="flex flex-col gap-6 px-6 mb-6">
+          <div
+            class="shipping-box bg-white rounded-3xl py-4 px-5 flex justify-between items-center shadow-md"
+          >
+            <div class="flex gap-4 items-center">
+              <img
+                src="../../assets/images/shipping-economy.svg"
+                alt="shipping"
+                class="h-12"
+              />
+              <div>
+                <div class="shipping-name text-lg font-semibold">Economy</div>
+                <div class="shipping-arrival text-gray-300">
+                  Estimated Arrival, Dec 20-23
+                </div>
+              </div>
+            </div>
+            <div class="flex gap-2 items-center">
+              <div class="shipping-price text-lg">$10</div>
+              <div>
+                <input type="radio" name="address" class="mt-2" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-6 px-6 mb-6">
+          <div
+            class="shipping-box bg-white rounded-3xl py-4 px-5 flex justify-between items-center shadow-md"
+          >
+            <div class="flex gap-4 items-center">
+              <img
+                src="../../assets/images/shipping-regular.svg"
+                alt="shipping"
+                class="h-12"
+              />
+              <div>
+                <div class="shipping-name text-lg font-semibold">Regular</div>
+                <div class="shipping-arrival text-gray-300">
+                  Estimated Arrival, Dec 20-22
+                </div>
+              </div>
+            </div>
+            <div class="flex gap-2 items-center">
+              <div class="shipping-price text-lg">$15</div>
+              <div>
+                <input type="radio" name="address" class="mt-2" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-6 px-6 mb-6">
+          <div
+            class="shipping-box bg-white rounded-3xl py-4 px-5 flex justify-between items-center shadow-md"
+          >
+            <div class="flex gap-4 items-center">
+              <img
+                src="../../assets/images/shipping-cargo.svg"
+                alt="shipping"
+                class="h-12"
+              />
+              <div>
+                <div class="shipping-name text-lg font-semibold">Cargo</div>
+                <div class="shipping-arrival text-gray-300">
+                  Estimated Arrival, Dec 19-20
+                </div>
+              </div>
+            </div>
+            <div class="flex gap-2 items-center">
+              <div class="shipping-price text-lg">$20</div>
+              <div>
+                <input type="radio" name="address" class="mt-2" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-6 px-6 mb-6">
+          <div
+            class="shipping-box bg-white rounded-3xl py-4 px-5 flex justify-between items-center shadow-md"
+          >
+            <div class="flex gap-4 items-center">
+              <img
+                src="../../assets/images/shipping-express.svg"
+                alt="shipping"
+                class="h-12 w-12 rounded-full"
+              />
+              <div>
+                <div class="shipping-name text-lg font-semibold">Express</div>
+                <div class="shipping-arrival text-gray-300">
+                  Estimated Arrival, Dec 18-19
+                </div>
+              </div>
+            </div>
+            <div class="flex gap-2 items-center">
+              <div class="shipping-price text-lg">$30</div>
+              <div>
+                <input type="radio" name="address" class="mt-2" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-6 mb-8 fixed bottom-0 w-full">
+        <button
+          class="bg-black w-full py-4 rounded-full text-white text-lg"
+          id="applyBtn"
+        >
+          Apply
+        </button>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

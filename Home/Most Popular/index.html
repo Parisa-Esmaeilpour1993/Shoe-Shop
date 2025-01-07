@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Most Popular</title>
+  </head>
+  <body>
+    <div class="fixed top-0">
+      <div class="flex gap-3 ml-6 py-4 mb-2">
+        <a href="../home-index.html"
+          ><img
+            src="../../assets/images/arrow-left-short.svg"
+            alt="return back"
+        /></a>
+        <span class="font-semibold text-[20px] text-[#152536]"
+          >Most Popular</span
+        >
+      </div>
+
+      <div class="max-w-[380px] overflow-x-auto scrollbar-hide ml-6 gap-3 flex">
+        <div>
+          <button
+            id="allBtn"
+            onclick="getProducts()"
+            class="py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] hover:bg-black hover:text-white transition-transform duration-500 hover:scale-x-110 hover:ml-1"
+          >
+            All
+          </button>
+        </div>
+        <div>
+          <button
+            id="nikeBtn"
+            onclick="handleFilterButtons('nikeBtn', 'NIKE')"
+            class="py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] hover:bg-black hover:text-white transition-transform duration-500 hover:scale-x-110"
+          >
+            Nike
+          </button>
+        </div>
+        <div>
+          <button
+            id="adidasBtn"
+            onclick="handleFilterButtons('adidasBtn', 'ADIDAS')"
+            class="py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] hover:bg-black hover:text-white transition-transform duration-500 hover:scale-x-110"
+          >
+            Adidas
+          </button>
+        </div>
+        <div>
+          <button
+            id="pumaBtn"
+            onclick="handleFilterButtons('pumaBtn', 'PUMA')"
+            class="py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] hover:bg-black hover:text-white transition-transform duration-500 hover:scale-x-110"
+          >
+            Puma
+          </button>
+        </div>
+        <div>
+          <button
+            id="asicsBtn"
+            onclick="handleFilterButtons('asicsBtn', 'ASICS')"
+            class="py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] hover:bg-black hover:text-white transition-transform duration-500 hover:scale-x-110"
+          >
+            Asics
+          </button>
+        </div>
+        <div>
+          <button
+            id="reebokBtn"
+            onclick="handleFilterButtons('reebokBtn', 'REEBOK')"
+            class="py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] hover:bg-black hover:text-white transition-transform duration-500 hover:scale-x-110"
+          >
+            Reebok
+          </button>
+        </div>
+        <div>
+          <button
+            id="newbaBtn"
+            onclick="handleFilterButtons('newbaBtn', 'NEW BALANCE')"
+            class="py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] hover:bg-black hover:text-white transition-transform duration-500 hover:scale-x-110"
+          >
+            NewBa..
+          </button>
+        </div>
+        <div>
+          <button
+            id="converseBtn"
+            onclick="handleFilterButtons('converseBtn', 'CONVERSE')"
+            class="mr-6 py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] hover:bg-black hover:text-white transition-transform duration-500 hover:scale-x-110"
+          >
+            Converse
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      id="productsBody"
+      class="grid grid-cols-2 gap-4 mr-6 ml-6 mt-36 max-h-[800px] overflow-y-auto"
+    ></div>
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Single Product</title>
+  </head>
+  <body>
+    <!-- Back Button -->
+    <button class="pl-6 pt-6 mb-[-40px] z-10 bg-[lightgray]" id="return-back">
+      <img src="../../assets/images/arrow-left-short.svg" alt="return-back" />
+    </button>
+
+    <!-- Swiper Section -->
+    <div>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper" id="swiper-wrapper"></div>
+      </div>
+
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Product Info -->
+    <div class="text-below-pagination">
+      <div class="flex justify-between mx-6 items-center mt-6">
+        <p class="font-bold text-2xl text-left max-w-80" id="name-product"></p>
+        <button id="favoriteBtn">
+          <img
+            src="../../assets/images/white heart.svg"
+            alt="favorite"
+            class="h-10 icon-img default-img"
+          />
+          <img
+            src="../../assets/images/red heart.svg"
+            alt="favorite"
+            class="h-10 icon-img selected-img hidden"
+          />
+        </button>
+      </div>
+
+      <div class="text-gray-700 flex gap-2 items-center ml-6 mt-6">
+        <span class="bg-gray-200 px-3 py-2 rounded" id="soldAmount"> </span>
+        <div>
+          <img src="../../assets/images/star.png" alt="favorite" class="h-5" />
+        </div>
+        <div><span id="star"></span>(<span id="reviews"></span> reviews)</div>
+      </div>
+
+      <div class="mx-6 my-4 bg-gray-200">
+        <hr />
+      </div>
+
+      <div class="mx-6 text-left">
+        <h1 class="font-semibold my-2 text-[22px]">Description</h1>
+        <div class="max-h-[88px] overflow-y-auto">
+          <p id="description-text" class="relative inline">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
+            asperiores temporibus repellendus explicabo voluptas! Ullam, modi
+            rerum eaque cupiditate sit doloribus perferendis eos repudiandae?
+            Molestias tempora labore. Ullam, modi rerum eaque cupiditate sit
+            doloribus perferendis eos repudiandae? Molestias tempora labore.
+          </p>
+          <button
+            id="read-more-btn"
+            class="text-gray-400 text-sm"
+            onclick="toggleReadMore()"
+          >
+            View More...
+          </button>
+        </div>
+      </div>
+
+      <!-- Size & Color Section -->
+      <div class="mx-6 mt-6 flex gap-12">
+        <div class="flex flex-col gap-4">
+          <div class="text-xl font-semibold text-left">Size</div>
+          <div class="flex gap-2" id="size"></div>
+        </div>
+        <div class="flex flex-col gap-4">
+          <div class="text-xl font-semibold text-left">Color</div>
+          <div
+            class="flex gap-1 max-w-44 overflow-x-auto scrollbar-hide"
+            id="color"
+          ></div>
+        </div>
+      </div>
+
+      <div class="flex gap-8 my-4 mx-6 items-center">
+        <span class="text-xl font-semibold text-left">Quantity</span>
+        <div class="flex gap-4 bg-gray-200 rounded-3xl px-5 py-2">
+          <button id="decrease-btn" class="disabled btn-disabled">-</button>
+          <span id="shoe-count">0</span>
+          <button id="increase-btn">+</button>
+        </div>
+      </div>
+
+      <div class="mx-6 mb-4 bg-gray-300">
+        <hr />
+      </div>
+
+      <div class="mx-6 flex gap-20 items-center">
+        <div class="flex- flex-col gap-2 text-left">
+          <div class="text-sm text-gray-600">Total Price</div>
+          <div class="font-bold text-2xl">$ <span id="price"></span></div>
+        </div>
+        <div
+          class="bg-black flex gap-6 px-10 py-2 h-12 rounded-3xl items-center"
+        >
+          <img src="../../assets/images/cart.png" alt="cart-shop" class="h-6" />
+
+          <button
+            class="text-white text-lg disabled btn-disabled"
+            id="add-cart-btn"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>

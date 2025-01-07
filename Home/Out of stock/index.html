@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Out of stock</title>
+  </head>
+  <body>
+    <!-- Back Button -->
+    <button class="pl-6 pt-6 mb-[-40px] z-10 bg-gray-100">
+      <img src="../../assets/images/arrow-left-short.svg" alt="return-back" />
+    </button>
+
+    <!-- Swiper Section -->
+    <div>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div>
+              <img
+                src="../../assets/images/Shoe.svg"
+                alt="swiper1-shoe"
+                class="mix-blend-darken"
+              />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div>
+              <img
+                src="../../assets/images/Shoe.svg"
+                alt="swiper2-shoe"
+                class="mix-blend-darken"
+              />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div>
+              <img
+                src="../../assets/images/Shoe.svg"
+                alt="swiper3-shoe"
+                class="mix-blend-darken"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Product Info -->
+    <div class="text-below-pagination">
+      <div class="flex justify-between mx-6 items-center mt-4">
+        <div class="font-bold text-3xl my-4">Running Sportwear</div>
+      </div>
+
+      <div class="mx-6 text-left">
+        <div class="max-h-24 overflow-y-auto">
+          <p id="description-text" class="relative inline">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
+            asperiores temporibus repellendus explicabo voluptas! Ullam, modi
+            rerum eaque cupiditate sit doloribus perferendis eos repudiandae?
+            Molestias tempora labore. Ullam, modi rerum eaque cupiditate sit
+            doloribus perferendis eos repudiandae? Molestias tempora labore.
+          </p>
+          <button
+            id="read-more-btn"
+            class="text-gray-400 text-sm"
+            onclick="toggleReadMore()"
+          >
+            View More...
+          </button>
+        </div>
+      </div>
+
+      <!-- Size & Color Section -->
+      <div class="mx-6 mt-6 flex gap-12">
+        <div class="flex flex-col gap-4">
+          <div class="text-xl font-semibold text-left">Size</div>
+          <div class="flex gap-2">
+            <div
+              class="w-10 h-10 rounded-full border-2 border-gray-400 text-gray-600 p-1"
+            >
+              39
+            </div>
+            <div
+              class="w-10 h-10 rounded-full border-2 border-gray-400 text-gray-600 p-1"
+            >
+              40
+            </div>
+            <div
+              class="w-10 h-10 rounded-full border-2 border-gray-400 text-gray-600 p-1"
+            >
+              41
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

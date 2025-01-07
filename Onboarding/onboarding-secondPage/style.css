@@ -1,0 +1,23 @@
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-right {
+  opacity: 0;
+  animation: slideInRight 300ms ease-out forwards;
+}
+
+@font-face {
+  font-family: inter;
+  src: ("../../assets/fonts/Inter/static/Inter_18pt-Medium.ttf");
+}
+.font-inter {
+  font-family: "inter", sans-serif;
+}

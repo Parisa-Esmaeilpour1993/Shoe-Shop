@@ -1,0 +1,1287 @@
+{
+	"info": {
+		"_postman_id": "673b822d-c34e-49e8-b694-3fe26362cc37",
+		"name": "Records API",
+		"description": "API for managing records with user-specific access",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Records APIs",
+			"item": [
+				{
+					"name": "Create Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "{{api_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"Test Record\",\n    \"isDone\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/records/todo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"records",
+								"todo"
+							]
+						},
+						"description": "Create a new record with the provided data"
+					},
+					"response": [
+						{
+							"name": "Create Record",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "api_key",
+										"value": "your-api-key",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"todo\": \"Test Record\",\n    \"isDone\": true\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/records/todo",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"todo"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "115"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"73-aYO+kQ/btgroHPMYiFFdUjbFPq8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 12 Dec 2024 18:49:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"createdAt\": \"2024-12-12T18:49:33.239Z\",\n    \"todo\": \"Test Record\",\n    \"isDone\": true,\n    \"id\": \"1217288620013778\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Records",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "{{api_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/records/todo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"records",
+								"todo"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Page number for pagination",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "Number of records per page",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "age",
+									"description": "Field to sort by",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "desc",
+									"description": "Sort order (asc or desc)",
+									"disabled": true
+								},
+								{
+									"key": "filterKey",
+									"value": "status",
+									"description": "Field to filter by",
+									"disabled": true
+								},
+								{
+									"key": "filterValue",
+									"value": "active",
+									"description": "Filter value (can be multiple)",
+									"disabled": true
+								},
+								{
+									"key": "filterValue",
+									"value": "pending",
+									"description": "Additional filter value",
+									"disabled": true
+								},
+								{
+									"key": "filterKey",
+									"value": "createdAt",
+									"description": "Additional field to filter by",
+									"disabled": true
+								},
+								{
+									"key": "filterMin",
+									"value": "2024-01-01",
+									"description": "Minimum date for date range filter",
+									"disabled": true
+								},
+								{
+									"key": "filterMax",
+									"value": "2024-12-31",
+									"description": "Maximum date for date range filter",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Get all records with pagination, sorting, and filtering options including date range filtering"
+					},
+					"response": [
+						{
+							"name": "Get All Records",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "api_key",
+										"value": "your-api-key",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/records/todo",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"records",
+										"todo"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Page number for pagination",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Number of records per page",
+											"disabled": true
+										},
+										{
+											"key": "sortBy",
+											"value": "age",
+											"description": "Field to sort by",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "desc",
+											"description": "Sort order (asc or desc)",
+											"disabled": true
+										},
+										{
+											"key": "filterKey",
+											"value": "status",
+											"description": "Field to filter by",
+											"disabled": true
+										},
+										{
+											"key": "filterValue",
+											"value": "active",
+											"description": "Filter value (can be multiple)",
+											"disabled": true
+										},
+										{
+											"key": "filterValue",
+											"value": "pending",
+											"description": "Additional filter value",
+											"disabled": true
+										},
+										{
+											"key": "filterKey",
+											"value": "createdAt",
+											"description": "Additional field to filter by",
+											"disabled": true
+										},
+										{
+											"key": "filterMin",
+											"value": "2024-01-01",
+											"description": "Minimum date for date range filter",
+											"disabled": true
+										},
+										{
+											"key": "filterMax",
+											"value": "2024-12-31",
+											"description": "Maximum date for date range filter",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "221"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"dd-H89PMFDSyJ3SabeEY5IpNnu3+K4\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 12 Dec 2024 18:49:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"records\": [\n        {\n            \"type\": \"record\",\n            \"createdAt\": \"2024-12-12T18:49:33.239Z\",\n            \"todo\": \"Test Record\",\n            \"isDone\": true,\n            \"id\": \"1217288620013778\"\n        }\n    ],\n    \"totalRecords\": 1,\n    \"currentPage\": 1,\n    \"totalPages\": 1,\n    \"recordsPerPage\": null,\n    \"appliedFilters\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Record by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "your-access-token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "{{api_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/records/todo/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"records",
+								"todo",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1406305391080174"
+								}
+							]
+						},
+						"description": "Get a specific record by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Record",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "{{api_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"Updated Record\",\n    \"isDone\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/records/todo/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"records",
+								"todo",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1406305391080174"
+								}
+							]
+						},
+						"description": "Update a specific record by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Record",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "{{api_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/records/todo/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"records",
+								"todo",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1406305391080174"
+								}
+							]
+						},
+						"description": "Delete a specific record by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All Records",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "{{api_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/records/todo/delete-all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"records",
+								"todo",
+								"delete-all"
+							]
+						},
+						"description": "Delete all records for the authenticated user"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "{{api_key}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"phone\": \"09123456789\",\n    \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example of register (email)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "api_key",
+										"value": "{{api_key}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test2@example.com\",\n    \"password\": \"12345678\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "419"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a3-48sFRL+R+mQ/ncK04swd8XbIWe0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 27 Dec 2024 11:39:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User registered successfully\",\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NmU5MWVmOTE2Nzc1MzkxNTZhYzBmMCIsImlhdCI6MTczNTI5OTU2OCwiZXhwIjoxNzM1MzAwNDY4fQ.LMLpEO8EzXJThe8j64cgMkANEuQeIQ9Vu8-pCDzM4cg\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NmU5MWVmOTE2Nzc1MzkxNTZhYzBmMCIsImlhdCI6MTczNTI5OTU2OCwiZXhwIjoxNzM1OTA0MzY4fQ.-cnHhY5cBwppPkOzxO55Eu3Ei_y1m2Lm6S5ozpG3A_Y\"\n}"
+						},
+						{
+							"name": "example of register (phone)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "api_key",
+										"value": "{{api_key}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"phone\": \"09123456789\",\n    \"password\": \"12345678\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "419"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a3-0LRnQQY9rReRCPvgk5jWrucr3o0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 27 Dec 2024 11:40:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User registered successfully\",\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NmU5MjM1OTE2Nzc1MzkxNTZhYzBmNSIsImlhdCI6MTczNTI5OTYzNywiZXhwIjoxNzM1MzAwNTM3fQ.w3izOuKQ_gVuEafGbK4l6qjTFdXEDCQVm0ErfAvOqL4\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NmU5MjM1OTE2Nzc1MzkxNTZhYzBmNSIsImlhdCI6MTczNTI5OTYzNywiZXhwIjoxNzM1OTA0NDM3fQ.ykEOrdPgEaTxIEKGUzLHM0c1W2O0c4CPUSLjeMaAOAI\"\n}"
+						},
+						{
+							"name": "example of bad register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "api_key",
+										"value": "{{api_key}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"12345678\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"47-qtp+Q2tZ7zqGRUVamFwK1FdJsaQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 27 Dec 2024 11:39:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Email or phone number already in use for this application\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "{{api_key}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test2@gexample.com\",\n    \"password\": \"000000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example of login (phone)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "api_key",
+										"value": "{{api_key}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"phone\": \"09123456789\",\n    \"password\": \"12345678\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "378"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"17a-/2j98NpIqe+eHK4lg5a1dAFxWuM\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 27 Dec 2024 11:43:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NmU5MjM1OTE2Nzc1MzkxNTZhYzBmNSIsImlhdCI6MTczNTI5OTc4NCwiZXhwIjoxNzM1MzAwNjg0fQ.r1NzKeISGfasn0lSHqXZdD10NFZJoqldnNaNbI4_BDc\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NmU5MjM1OTE2Nzc1MzkxNTZhYzBmNSIsImlhdCI6MTczNTI5OTc4NCwiZXhwIjoxNzM1OTA0NTg0fQ.2i2v0e_pAhl7sHxZnWDvbQCR0wQ4_h3iliv7jj6TaeE\"\n}"
+						},
+						{
+							"name": "example of login (email)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "api_key",
+										"value": "{{api_key}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test2@gexample.com\",\n    \"password\": \"12345678\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "378"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"17a-H5QNKgABXq6vXMWCrme/BnAvZDY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 27 Dec 2024 11:43:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NmU5MWVmOTE2Nzc1MzkxNTZhYzBmMCIsImlhdCI6MTczNTI5OTgxNiwiZXhwIjoxNzM1MzAwNzE2fQ.fQ5ejvIN-2fgxq6SGopilcSfDbJFrASmFK5bru1MOJ0\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NmU5MWVmOTE2Nzc1MzkxNTZhYzBmMCIsImlhdCI6MTczNTI5OTgxNiwiZXhwIjoxNzM1OTA0NjE2fQ.H9cUBeNb06CNPkBbWZ5xJOBr-po_6BU41lddcisqVmw\"\n}"
+						},
+						{
+							"name": "example of bad login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "api_key",
+										"value": "{{api_key}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test2@gexample.com\",\n    \"password\": \"000000\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21-dBEoW0UmTF+EGUMaprEp9/8zNNA\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 27 Dec 2024 11:43:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid credentials\"\n}"
+						}
+					]
+				},
+				{
+					"name": "User data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "{{api_key}}",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/me",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User data",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "api_key",
+										"value": "{{api_key}}",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/users/me",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "68"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"44-dsRPGqvrGKyF2OUfGQtQmwpAOZ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 27 Dec 2024 12:03:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"email\": \"test2@example.com\",\n    \"createdAt\": \"2024-12-27T11:39:27.836Z\"\n}"
+						},
+						{
+							"name": "bad request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "api_key",
+										"value": "{{api_key}}",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/users/me",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"me"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "34"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"22-A9Lxbbc3Ky+NvhactM4b56HJ6x8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 27 Dec 2024 11:49:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid access token\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Files",
+			"item": [
+				{
+					"name": "upload",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "{{api_key}}",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/alikooshesh/Desktop/Screenshot 1402-09-17 at 2.19.46 AM.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/files/upload",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"files",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/assets/uploads/:fileName",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"assets",
+								"uploads",
+								":fileName"
+							],
+							"variable": [
+								{
+									"key": "fileName",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://api.alikooshesh.ir:3000",
+			"type": "string"
+		},
+		{
+			"key": "api_key",
+			"value": "your-api-key"
+		},
+		{
+			"key": "access_token",
+			"value": "user-access-token",
+			"type": "default"
+		}
+	]
+}

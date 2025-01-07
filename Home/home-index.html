@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Home Page</title>
+  </head>
+  <body class="font-inter">
+    <header class="flex justify-between h-20">
+      <div class="flex gap-4">
+        <div class="w-12 h-12 ml-6 rounded-full mt-4 bg-black">
+          <img src="" alt="" />
+        </div>
+        <div>
+          <div class="flex">
+            <p class="font-medium text-[#757475] mt-4">Good Morning</p>
+            <span class="w-4 h-4 mt-[18px] ml-1">👋</span>
+          </div>
+          <div id="username" class="font-bold text-[#152536]"></div>
+        </div>
+      </div>
+
+      <div class="flex gap-4 items-center">
+        <img src="../assets/images/bell.svg" alt="bell" class="w-6" />
+        <a href="../Home/Wish-List/index.html">
+          <button class="mt-1" onclick="setInProcess(this)" id="favoriteBtn">
+            <img
+              src="../assets/images/white heart.svg"
+              alt="Favorite"
+              class="w-8 mr-6 icon-img default-img"
+            />
+            <img
+              src="../assets/images/red heart.svg"
+              alt="Favorite"
+              class="w-8 mr-6 icon-img selected-img hidden"
+            />
+          </button>
+        </a>
+      </div>
+    </header>
+
+    <a href="../Search/index-noResult.html">
+      <div class="flex w-[380px] gap-2 ml-6 p-3 bg-[#FAFAFA] rounded">
+        <div class="w-[18px]">
+          <button id="searchButton">
+            <img
+              src="../assets/images/input-search.svg"
+              alt="search-img"
+              class="pt-1"
+            />
+          </button>
+        </div>
+        <input
+          type="search"
+          name="searchInput"
+          id="search-input"
+          placeholder="Search"
+          class="bg-[#FAFAFA] outline-none"
+        />
+      </div>
+    </a>
+    <!-- Brands -->
+    <main class="w-[380px] h-[234px] mt-3 ml-6">
+      <div class="flex gap-10 ml-2 mt-3">
+        <a
+          class="transition-transform duration-300 hover:scale-125"
+          href="./Brand-Products/index.html?brand=NIKE"
+        >
+          <div class="flex flex-col gap-[13px] items-center justify-center">
+            <div
+              class="w-[60px] h-[60px] rounded-full bg-[#ECECEC] flex items-center justify-center"
+            >
+              <img
+                src="../assets/images/Nike-brand.svg"
+                alt="Nike"
+                class="w-[30px] h-[19px]"
+              />
+            </div>
+            <div class="text-sm font-semibold hover:text-[20px]">Nike</div>
+          </div>
+        </a>
+        <a
+          class="transition-transform duration-300 hover:scale-125"
+          href="./Brand-Products/index.html?brand=ADIDAS"
+        >
+          <div class="flex flex-col gap-[13px] items-center justify-center">
+            <div
+              class="w-[60px] h-[60px] rounded-full bg-[#ECECEC] flex items-center justify-center"
+            >
+              <img
+                src="../assets/images/Adidas-brand.svg"
+                alt="Adidas"
+                class="w-[30px] h-[19px]"
+              />
+            </div>
+            <div class="text-sm font-semibold hover:text-[20px]">Adidas</div>
+          </div>
+        </a>
+        <a
+          class="transition-transform duration-300 hover:scale-125"
+          href="./Brand-Products/index.html?brand=PUMA"
+        >
+          <div class="flex flex-col gap-[13px] items-center justify-center">
+            <div
+              class="w-[60px] h-[60px] rounded-full bg-[#ECECEC] flex items-center justify-center"
+            >
+              <img
+                src="../assets/images/Puma-brand.svg"
+                alt="PUMA"
+                class="w-[30px] h-[19px]"
+              />
+            </div>
+            <div class="text-sm font-semibold hover:text-[20px]">Puma</div>
+          </div>
+        </a>
+        <a
+          class="transition-transform duration-300 hover:scale-125"
+          href="./Brand-Products/index.html?brand=ASICS"
+        >
+          <div class="flex flex-col gap-[13px] items-center justify-center">
+            <div
+              class="w-[60px] h-[60px] rounded-full bg-[#ECECEC] flex items-center justify-center"
+            >
+              <img
+                src="../assets/images/Asics-brand.svg"
+                alt="Asics"
+                class="w-[30px] h-[19px]"
+              />
+            </div>
+            <div class="text-sm font-semibold hover:text-[20px]">Asics</div>
+          </div>
+        </a>
+      </div>
+      <div class="flex gap-10 ml-2 mt-3">
+        <a
+          class="transition-transform duration-300 hover:scale-125"
+          href="./Brand-Products/index.html?brand=REEBOK"
+        >
+          <div class="flex flex-col gap-[13px] items-center justify-center">
+            <div
+              class="w-[60px] h-[60px] rounded-full bg-[#ECECEC] flex items-center justify-center"
+            >
+              <img
+                src="../assets/images/Reebok-brand.svg"
+                alt="Reebok"
+                class="w-[30px] h-[19px]"
+              />
+            </div>
+            <div class="text-sm font-semibold hover:text-[20px]">Reebok</div>
+          </div>
+        </a>
+        <a
+          class="transition-transform duration-300 hover:scale-125"
+          href="./Brand-Products/index.html?brand=NEW BALANCE"
+        >
+          <div class="flex flex-col gap-[13px] items-center justify-center">
+            <div
+              class="w-[60px] h-[60px] rounded-full bg-[#ECECEC] flex items-center justify-center"
+            >
+              <img
+                src="../assets/images/NewBa-brand.svg"
+                alt="NewBa"
+                class="w-[30px] h-[19px]"
+              />
+            </div>
+            <div class="text-sm font-semibold hover:text-[20px]">New Ba...</div>
+          </div>
+        </a>
+        <a
+          class="transition-transform duration-300 hover:scale-125"
+          href="./Brand-Products/index.html?brand=CONVERSE"
+        >
+          <div class="flex flex-col gap-[13px] items-center justify-center">
+            <div
+              class="w-[60px] h-[60px] rounded-full bg-[#ECECEC] flex items-center justify-center"
+            >
+              <img
+                src="../assets/images/Converse-brand.svg"
+                alt="Converse"
+                class="w-[30px] h-[19px]"
+              />
+            </div>
+            <div class="text-sm font-semibold hover:text-[20px]">Converse</div>
+          </div>
+        </a>
+        <a
+          class="transition-transform duration-300 hover:scale-125"
+          href="./Brand-Products/index.html"
+        >
+          <div class="flex flex-col gap-[13px] items-center justify-center">
+            <div
+              class="w-[60px] h-[60px] rounded-full bg-[#ECECEC] flex items-center justify-center"
+            >
+              <img
+                src="../assets/images/More-brand.svg"
+                alt="More"
+                class="w-[30px] h-[19px]"
+              />
+            </div>
+            <div class="text-sm font-semibold hover:text-[20px]">More</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+    <div>
+      <div class="mx-6 mb-4 flex justify-between font-bold text-[#152536]">
+        <a href="../Home/Most Popular/index.html">
+          <button>Most Popular</button>
+        </a>
+        <a href="../Home/Most Popular/index.html">
+          <button>See All</button>
+        </a>
+      </div>
+
+      <!-- Buttons -->
+      <div class="overflow-x-auto scrollbar-hide ml-6 gap-3 flex">
+        <div>
+          <button
+            id="allBtn"
+            onclick="getProducts()"
+            class="py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] bg-black text-white hover:bg-black hover:text-white transition-transform duration-500"
+          >
+            All
+          </button>
+        </div>
+        <div>
+          <button
+            id="nikeBtn"
+            onclick="handleFilterButtons('nikeBtn', 'NIKE')"
+            class="py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] hover:bg-black hover:text-white transition-transform duration-500"
+          >
+            Nike
+          </button>
+        </div>
+        <div>
+          <button
+            id="adidasBtn"
+            onclick="handleFilterButtons('adidasBtn', 'ADIDAS')"
+            class="py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] hover:bg-black hover:text-white transition-transform duration-500"
+          >
+            Adidas
+          </button>
+        </div>
+        <div>
+          <button
+            id="pumaBtn"
+            onclick="handleFilterButtons('pumaBtn', 'PUMA')"
+            class="py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] hover:bg-black hover:text-white transition-transform duration-500"
+          >
+            Puma
+          </button>
+        </div>
+        <div>
+          <button
+            id="asicsBtn"
+            onclick="handleFilterButtons('asicsBtn', 'ASICS')"
+            class="py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] hover:bg-black hover:text-white transition-transform duration-500"
+          >
+            Asics
+          </button>
+        </div>
+        <div>
+          <button
+            id="reebokBtn"
+            onclick="handleFilterButtons('reebokBtn', 'REEBOK')"
+            class="py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] hover:bg-black hover:text-white transition-transform duration-500"
+          >
+            Reebok
+          </button>
+        </div>
+        <div>
+          <button
+            id="newbaBtn"
+            onclick="handleFilterButtons('newbaBtn', 'NEW BALANCE')"
+            class="py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] hover:bg-black hover:text-white transition-transform duration-500"
+          >
+            NewBa..
+          </button>
+        </div>
+        <div>
+          <button
+            id="converseBtn"
+            onclick="handleFilterButtons('converseBtn', 'CONVERSE')"
+            class="mr-6 py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] hover:bg-black hover:text-white transition-transform duration-500"
+          >
+            Converse
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="productsBody"
+        class="grid grid-cols-2 gap-4 mr-6 ml-6 mt-6 overflow-y-auto max-h-96"
+      ></div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast hidden">
+      <span id="toast-message"></span>
+    </div>
+
+    <footer class="w-[428px] h-20 bottom-0 fixed flex pt-6 justify-evenly">
+      <button
+        class="footer-btn flex flex-col gap-[2px] items-center justify-center"
+        id="homeBtn"
+        onclick="setActive(this)"
+      >
+        <img
+          src="../assets/images/home.png"
+          alt="Home"
+          class="h-6 icon-img default-img hidden"
+        />
+        <img
+          src="../assets/images/home-select.svg"
+          alt="Home"
+          class="h-6 icon-img selected-img"
+        />
+        <div>Home</div>
+      </button>
+      <button
+        class="footer-btn flex flex-col gap-[2px] items-center justify-center"
+        id="cartBtn"
+        onclick="setActive(this)"
+      >
+        <img
+          src="../assets/images/cart.svg"
+          alt="Cart"
+          class="h-6 icon-img default-img"
+        />
+        <img
+          src="../assets/images/cart-select.png"
+          alt="Cart"
+          class="h-6 icon-img selected-img hidden"
+        />
+        <div>Cart</div>
+      </button>
+      <button
+        class="footer-btn flex flex-col gap-[2px] items-center justify-center"
+        id="orderBtn"
+        onclick="setActive(this)"
+      >
+        <img
+          src="../assets/images/Order.png"
+          alt="Orders"
+          class="h-6 icon-img default-img"
+        />
+        <img
+          src="../assets/images/orders-select.png"
+          alt="Orders"
+          class="h-6 icon-img selected-img hidden"
+        />
+        <div>Orders</div>
+      </button>
+      <button
+        class="footer-btn flex flex-col gap-[2px] items-center justify-center"
+        id="walletBtn"
+        onclick="setActive(this)"
+      >
+        <img
+          src="../assets/images/wallet-fill.svg"
+          alt="Wallet"
+          class="h-6 icon-img default-img"
+        />
+        <img
+          src="../assets/images/wallet-select.png"
+          alt="Wallet"
+          class="h-6 icon-img selected-img hidden"
+        />
+        <div>Wallet</div>
+      </button>
+      <button
+        class="footer-btn flex flex-col gap-[2px] items-center justify-center"
+        id="profileBtn"
+        onclick="setActive(this)"
+      >
+        <img
+          src="../assets/images/profile-fill.svg"
+          alt="Profile"
+          class="h-6 icon-img default-img"
+        />
+        <img
+          src="../assets/images/profile-select.png"
+          alt="Profile"
+          class="h-6 icon-img selected-img hidden"
+        />
+        <div>Profile</div>
+      </button>
+    </footer>
+
+    <script src="./home-script.js"></script>
+  </body>
+</html>

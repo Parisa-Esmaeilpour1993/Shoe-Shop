@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>My WishList</title>
+  </head>
+  <body>
+    <div class="flex justify-between items-center">
+      <div class="flex gap-3 ml-6 py-4 my-2">
+        <a href="../../Home/home-index.html">
+          <img
+            src="../../assets/images/arrow-left-short.svg"
+            alt="return back"
+          />
+        </a>
+        <span class="font-semibold text-[20px] text-[#152536]"
+          >My Wishlist</span
+        >
+      </div>
+      <div class="flex gap-2 items-center">
+        <div>
+          <input
+            type="text"
+            id="searchInput"
+            class="border-[2px] outline-none w-20 hidden"
+            autocomplete="off"
+          />
+          <span class="h-5 hidden" id="closeInput">✖</span>
+        </div>
+
+        <button class="mr-6 mb-1" id="searchBtn">
+          <img src="../../assets/images/input-search.svg" alt="search-icon" />
+        </button>
+      </div>
+    </div>
+    <div
+      class="mx-6 mb-6 px-2 rounded-md border-2 hover:border-black border-gray-400 hidden"
+    >
+      <input type="search" placeholder="write here..." class="outline-none" />
+    </div>
+    <div>
+      <!-- buttons -->
+      <div class="overflow-x-auto ml-6 gap-3 flex scrollbar-hide">
+        <div>
+          <button
+            id="allBtn"
+            onclick="getProducts()"
+            class="hover:bg-black hover:text-white transition-transform duration-500 py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] text-[18px]"
+          >
+            All
+          </button>
+        </div>
+        <div>
+          <button
+            id="nikeBtn"
+            onclick="handleFilterButtons('nikeBtn', 'NIKE')"
+            class="hover:bg-black hover:text-white transition-transform duration-500 py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] text-[18px]"
+          >
+            Nike
+          </button>
+        </div>
+        <div>
+          <button
+            id="adidasBtn"
+            onclick="handleFilterButtons('adidasBtn', 'ADIDAS')"
+            class="hover:bg-black hover:text-white transition-transform duration-500 py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] text-[18px]"
+          >
+            Adidas
+          </button>
+        </div>
+        <div>
+          <button
+            id="pumaBtn"
+            onclick="handleFilterButtons('pumaBtn', 'PUMA')"
+            class="hover:bg-black hover:text-white transition-transform duration-500 py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] text-[18px]"
+          >
+            Puma
+          </button>
+        </div>
+        <div>
+          <button
+            id="asicsBtn"
+            onclick="handleFilterButtons('asicsBtn', 'ASICS')"
+            class="hover:bg-black hover:text-white transition-transform duration-500 py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] text-[18px]"
+          >
+            Asics
+          </button>
+        </div>
+        <div>
+          <button
+            id="reebokBtn"
+            onclick="handleFilterButtons('reebokBtn', 'REEBOK')"
+            class="hover:bg-black hover:text-white transition-transform duration-500 py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] text-[18px]"
+          >
+            Reebok
+          </button>
+        </div>
+        <div>
+          <button
+            id="newbaBtn"
+            onclick="handleFilterButtons('newbaBtn', 'NEW BALANCE')"
+            class="hover:bg-black hover:text-white transition-transform duration-500 py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] text-[18px]"
+          >
+            NewBa..
+          </button>
+        </div>
+        <div>
+          <button
+            id="converseBtn"
+            onclick="handleFilterButtons('converseBtn', 'CONVERSE')"
+            class="hover:bg-black hover:text-white transition-transform duration-500 py-1 px-5 rounded-3xl h-10 border-2 border-[#343A40] text-[#343A40] text-[18px] mr-6"
+          >
+            Converse
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="productsBody"
+        class="px-6 grid grid-cols-2 gap-3 mt-6 overflow-y-auto max-h-[840px]"
+      ></div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
