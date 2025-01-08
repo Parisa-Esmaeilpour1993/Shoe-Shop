@@ -14,13 +14,13 @@ body {
 .toast {
   position: fixed;
   top: 60px;
-  right: 80px;
+  left: 36px;
+  width: 360px;
   background-color: #333;
   color: white;
   padding: 12px 30px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.3s ease, transform 0.3s ease;

@@ -4,6 +4,8 @@ const overlayModal = document.getElementById("overlay-modal");
 const methodInput = document.getElementById("method-input");
 const closeModal = document.getElementById("closeModal");
 const addBtn = document.getElementById("addBtn");
+const confirmBtn = document.getElementById("confirmBtn");
+const radioButtons = document.querySelectorAll("input[type='radio']");
 
 // Load saved payment methods from localStorage and render them on page load
 window.addEventListener("load", () => {
@@ -82,6 +84,29 @@ function deletePaymentMethod(method) {
   );
   localStorage.setItem("paymentMethods", JSON.stringify(updatedMethods));
 }
+
+// Function to check if any radio button is selected
+function checkRadioSelection() {
+  const isSelected = Array.from(radioButtons).some((radio) => radio.checked);
+
+  if (isSelected) {
+    confirmBtn.removeAttribute("disabled"); // Enable the button if a radio is selected
+    confirmBtn.classList.add("bg-black", "text-white");
+    confirmBtn.classList.remove("bg-gray-300", "text-gray-500");
+  } else {
+    confirmBtn.setAttribute("disabled", "true"); // Disable the button if no radio is selected
+    confirmBtn.classList.remove("bg-black", "text-white");
+    confirmBtn.classList.add("bg-gray-300", "text-gray-500");
+  }
+}
+
+// Add event listeners to radio buttons to call the checkRadioSelection function
+radioButtons.forEach((radio) => {
+  radio.addEventListener("change", checkRadioSelection); // Check on change of selection
+});
+
+// Call the function on page load to ensure the button is properly set based on the initial state
+window.addEventListener("load", checkRadioSelection);
 
 // Displays a toast notification with a given message and type.
 function showToast(message, type) {

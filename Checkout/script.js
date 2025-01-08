@@ -194,6 +194,26 @@ discountBtn.addEventListener("click", () => {
   finalPrice.innerHTML = final.toFixed(2); // Update the final price displayed
 });
 
+// Event listener for the payment button to ensure both shipping option and address are selected
+document.getElementById("paymentBtn").addEventListener("click", () => {
+  const shippingOption = JSON.parse(localStorage.getItem("shippingOption"));
+  const addressData = JSON.parse(localStorage.getItem("addressData"));
+
+  // Check if shipping option and address data are available in localStorage
+  if (!shippingOption) {
+    showToast("Please select a shipping option before continuing.", "error");
+    return; // Stop further execution if shipping option is missing
+  }
+
+  if (!addressData) {
+    showToast("Please select a shipping address before continuing.", "error");
+    return; // Stop further execution if address is missing
+  }
+
+  // Continue to the next page if both are present
+  window.location.href = "../Checkout/Paymount-Method/index.html";
+});
+
 // Displays a toast notification with a given message and type.
 function showToast(message, type) {
   const toast = document.getElementById("toast");
