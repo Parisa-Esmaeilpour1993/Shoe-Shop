@@ -1,3 +1,12 @@
+@font-face {
+  font-family: inter;
+  src: url("../../assets/fonts/Inter/static/Inter_18pt-Medium.ttf");
+}
+
+body {
+  font-family: inter;
+}
+
 input[type="radio"] {
   appearance: none;
   width: 20px;
@@ -26,4 +35,37 @@ input[type="radio"]:checked {
 
 input[type="radio"]:checked:before {
   background-color: black;
+}
+
+.toast {
+  position: fixed;
+  top: 780px;
+  right: 80px;
+  background-color: #333;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.success {
+  background-color: #4caf50;
+}
+
+.toast.error {
+  background-color: #f44336;
+}
+
+.hidden {
+  display: none;
 }

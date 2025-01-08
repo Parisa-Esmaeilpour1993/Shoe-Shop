@@ -19,14 +19,15 @@
           />
         </div>
       </div>
-
       <div class="flex items-center gap-3 ml-4 py-4 mb-2">
-        <button id="return-back">
-          <img
-            src="../../assets/images/arrow-left-short.svg"
-            alt="return back"
-          />
-        </button>
+        <a href="../index.html">
+          <button id="return-back">
+            <img
+              src="../../assets/images/arrow-left-short.svg"
+              alt="return back"
+            />
+          </button>
+        </a>
         <span class="font-semibold text-2xl text-[#152536]"
           >Shipping Address</span
         >
@@ -113,6 +114,11 @@
         </button>
       </div>
     </div>
+
+    <div id="toast" class="toast">
+      <span id="toast-message"></span>
+    </div>
+
     <script src="./script.js"></script>
   </body>
 </html>
