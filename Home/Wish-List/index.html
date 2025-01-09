@@ -21,14 +21,17 @@
         >
       </div>
       <div class="flex gap-2 items-center">
-        <div>
+        <div
+          class="searchDiv border-2 rounded-lg py-1 px-2 items-center gap-2 hidden"
+        >
           <input
             type="text"
             id="searchInput"
-            class="border-[2px] outline-none w-20 hidden"
+            class="outline-none w-32"
             autocomplete="off"
+            placeholder="Search here..."
           />
-          <span class="h-5 hidden" id="closeInput">✖</span>
+          <span class="text-gray-500" id="closeInput">✖</span>
         </div>
 
         <button class="mr-6 mb-1" id="searchBtn">

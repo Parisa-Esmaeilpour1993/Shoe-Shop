@@ -1,18 +1,22 @@
+// DOM elements
 const mainContainer = document.querySelector("main");
 const overlay = document.getElementById("overlay");
 const totalPrice = document.getElementById("totalPrice");
+
 let selectedProductId = null;
 let cartData = [];
 let updatedProducts = [];
-let initialQuantity = 0;
 
+// Base URL for the API
 const baseUrl = "http://api.alikooshesh.ir:3000";
 
+// Function to get the token from localStorage
 function getToken() {
   const token = localStorage.getItem("token");
   return token;
 }
 
+// Fetch cart data from the server
 async function getCartData() {
   try {
     const response = await fetch(`${baseUrl}/api/records/cart`, {
@@ -45,8 +49,10 @@ async function getCartData() {
   }
 }
 
+// Render the cart items
 function renderCart(cartData) {
-  mainContainer.innerHTML = "";
+  mainContainer.innerHTML = ""; // Clear the container
+
   if (cartData.length === 0) {
     mainContainer.innerHTML = "<p>No items in your cart.</p>";
     mainContainer.classList.add("m-6");
@@ -54,6 +60,7 @@ function renderCart(cartData) {
     return;
   }
 
+  // Loop through cart data and render each item
   cartData.forEach((item) => {
     const unitPrice = item.price / item.quantity;
     const totalPrice = unitPrice * item.quantity;
@@ -102,8 +109,9 @@ function renderCart(cartData) {
         </div>
       </div>
     `;
-    mainContainer.appendChild(cartItemDiv);
+    mainContainer.appendChild(cartItemDiv); // Add the cart item div to the main container
 
+    // Add event listener for deleting a product
     const deleteProductBtn = document.getElementById(
       `deleteProductBtn-${item.id}`
     );
@@ -115,6 +123,7 @@ function renderCart(cartData) {
       });
     }
 
+    // Add event listeners for quantity buttons
     const decreaseBtn = document.getElementById(`decrease-${item.id}`);
     const increaseBtn = document.getElementById(`increase-${item.id}`);
 
@@ -128,6 +137,7 @@ function renderCart(cartData) {
   });
 }
 
+// Update product quantity and re-calculate price
 function updateQuantity(productId, change, unitPrice) {
   console.log(change);
   console.log(unitPrice);
@@ -160,9 +170,8 @@ function updateQuantity(productId, change, unitPrice) {
   saveCartData();
 }
 
+// Render the modal for product removal confirmation
 function renderModal(product) {
-  initialQuantity = product.quantity;
-
   const modalContent = document.getElementById("content-modal");
 
   modalContent.innerHTML = `
@@ -189,31 +198,26 @@ function renderModal(product) {
         </div>
         <div class="flex justify-between items-center font-semibold">
           <div id="modal-price-${product.id}">$<span>${product.price}</span></div>
-          <div
-            class="flex gap-3 bg-gray-200 rounded-3xl px-4 py-2 items-center"
-          >
-            <div id="modal-decrease-${product.id}" class="quantity-btn">-</div>
-            <div id="modal-quantity-${product.id}">${product.quantity}</div>
-            <div id="modal-increase-${product.id}" class="quantity-btn">+</div>
-          </div>
+          
         </div>
       </div>
     </div>
 
     <div class="flex justify-between text-lg">
       <div
-        class="m-4 px-10 py-3 bg-gray-400 rounded-3xl shadow-lg cancelDelete"
+        class="m-4 px-6 py-3 bg-gray-400 rounded-3xl shadow-lg cancelDelete"
       >
         Cancel
       </div>
       <div
-        class="m-4 px-10 py-3 bg-gray-400 rounded-3xl shadow-lg removeFromCart"
+        class="m-4 px-6 py-3 bg-gray-400 rounded-3xl shadow-lg removeFromCart"
       >
         Yes, Remove
       </div>
     </div>
   `;
 
+  // Event listeners for cancel and remove actions in the modal
   document.querySelector(".cancelDelete").addEventListener("click", () => {
     overlay.classList.add("hidden");
   });
@@ -221,99 +225,40 @@ function renderModal(product) {
   document
     .querySelector(".removeFromCart")
     .addEventListener("click", async () => {
-      if (product.quantity === initialQuantity) {
-        try {
-          const updatedCartData = cartData.filter(
-            (item) => item.id !== product.id
-          );
-          localStorage.setItem("cartItems", JSON.stringify(updatedCartData));
-
-          const response = await fetch(
-            `${baseUrl}/api/records/cart/${product.id}`,
-            {
-              method: "DELETE",
-              headers: {
-                "Content-Type": "application/json",
-                api_key:
-                  "Esmaeilpour-124z6tKqZZyk0TgRXbrhW39BqvkAMdHfjzUMUUD3aPsSw3SbVAdgA0F1WAkMiDm8WpjWcR93dq0JPZDTbFhbHjOn6locjojMTz3v6lCS7OiuRJUW5IFI",
-                authorization: `Bearer ${getToken()}`,
-              },
-            }
-          );
-
-          if (!response.ok) {
-            throw new Error("Failed to delete the product from cart.");
-          }
-
-          getCartData();
-          overlay.classList.add("hidden");
-        } catch (error) {
-          console.error("Error deleting product:", error);
-          toast("Failed to remove the product. Please try again.");
-        }
-      } else {
-        console.log(product.quantity);
-        console.log(initialQuantity);
-        console.log(product.price);
-        updateQuantity(
-          product.id,
-          product.quantity - initialQuantity,
-          product.price / product.quantity,
-          product.quantity
+      try {
+        const updatedCartData = cartData.filter(
+          (item) => item.id !== product.id
         );
+        localStorage.setItem("cartItems", JSON.stringify(updatedCartData));
+
+        const response = await fetch(
+          `${baseUrl}/api/records/cart/${product.id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              api_key:
+                "Esmaeilpour-124z6tKqZZyk0TgRXbrhW39BqvkAMdHfjzUMUUD3aPsSw3SbVAdgA0F1WAkMiDm8WpjWcR93dq0JPZDTbFhbHjOn6locjojMTz3v6lCS7OiuRJUW5IFI",
+              authorization: `Bearer ${getToken()}`,
+            },
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to delete the product from cart.");
+        }
+
+        // Refresh the cart data and hide modal
         getCartData();
         overlay.classList.add("hidden");
+      } catch (error) {
+        console.error("Error deleting product:", error);
+        toast("Failed to remove the product. Please try again.");
       }
     });
-  const modalDecreaseBtn = document.getElementById(
-    `modal-decrease-${product.id}`
-  );
-  const modalIncreaseBtn = document.getElementById(
-    `modal-increase-${product.id}`
-  );
-
-  const unitPrice = product.price / product.quantity;
-
-  modalDecreaseBtn.addEventListener("click", () => {
-    updateModalQuantity(product.id, -1, unitPrice);
-  });
-
-  modalIncreaseBtn.addEventListener("click", () => {
-    updateModalQuantity(product.id, 1, unitPrice);
-  });
 }
 
-function updateModalQuantity(productId, change, unitPrice) {
-  const product = cartData.find((item) => item.id === productId);
-  if (!product) return;
-
-  const newQuantity = product.quantity + change;
-
-  if (newQuantity < 1 || newQuantity > product.maxQuantity) return;
-
-  product.quantity = newQuantity;
-  product.price = unitPrice * newQuantity;
-
-  const modalQuantityElement = document.getElementById(
-    `modal-quantity-${productId}`
-  );
-  const modalPriceElement = document.getElementById(`modal-price-${productId}`);
-
-  if (modalQuantityElement) {
-    modalQuantityElement.textContent = newQuantity;
-  }
-
-  if (modalPriceElement) {
-    modalPriceElement.innerHTML = `$<span>${product.price}</span>`;
-  }
-
-  // Update the total price
-  calculateTotalPrice();
-
-  // Save updated cartData to localStorage and sync with server
-  saveCartData();
-}
-
+// Save updated cart data to localStorage and sync with server
 function saveCartData() {
   localStorage.setItem("cartItems", JSON.stringify(cartData));
 
@@ -342,6 +287,7 @@ function saveCartData() {
   });
 }
 
+// Calculate the total price of the cart
 function calculateTotalPrice() {
   let total = 0;
   cartData.forEach((item) => {
@@ -352,8 +298,6 @@ function calculateTotalPrice() {
 }
 
 getCartData();
-
-console.log(cartData);
 
 function setActive(selectedButton) {
   // Get all buttons with the class 'footer-btn'
@@ -372,15 +316,31 @@ function setActive(selectedButton) {
   selectedImages[1].classList.remove("hidden"); // Show selected image
 }
 
+// Redirect to home page
 const homeBtn = document.getElementById("homeBtn");
 homeBtn.addEventListener("click", () => {
   window.location.href = "../Home/home-index.html";
 });
+
+// Redirect to order page
 const orderBtn = document.getElementById("orderBtn");
 orderBtn.addEventListener("click", () => {
   window.location.href = "../Order/index.html";
 });
 
+// Redirect to profile page
+const walletBtn = document.getElementById("walletBtn");
+walletBtn.addEventListener("click", () => {
+  window.location.href = "../Checkout/Paymount-Method/index.html";
+});
+
+// Redirect to profile page
+const profileBtn = document.getElementById("profileBtn");
+profileBtn.addEventListener("click", () => {
+  window.location.href = "../Login/profile/index.html";
+});
+
+// Process to submit the order if cart is not empty
 const checkoutBtn = document.getElementById("checkoutBtn");
 checkoutBtn.addEventListener("click", async () => {
   if (cartData.length === 0) {
@@ -390,8 +350,10 @@ checkoutBtn.addEventListener("click", async () => {
   await submitOrder();
 });
 
+// Function to submit the order to the server
 async function submitOrder() {
   try {
+    // Prepare order data by mapping through cartData
     const orderData = cartData.map((item) => ({
       id: item.id,
       name: item.name,
@@ -420,18 +382,22 @@ async function submitOrder() {
     const result = await response.json();
     console.log("Cart send to checkout successfully:", result);
 
+    // Store the order data in localStorage for later use
     localStorage.setItem("order", JSON.stringify(orderData));
 
     renderCart(cartData);
     calculateTotalPrice();
 
+    // Redirect to the checkout page
     window.location.href = "../Checkout/index.html";
   } catch (error) {
     console.error("Error submitting order:", error);
+    // Show a toast notification in case of error
     toast("Failed to submit the order. Please try again.");
   }
 }
 
+//Toast function to alert users
 function toast(message) {
   const toastMessage = document.createElement("div");
   toastMessage.classList.add("toast");

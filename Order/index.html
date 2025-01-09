@@ -16,17 +16,7 @@
     </style>
   </head>
   <body>
-    <header class="fixed top-0 left-0 w-full pb-4 font-inter">
-      <div class="flex justify-between mx-6 pt-3">
-        <div class="font-bold">9:41</div>
-        <div>
-          <img
-            src="../../assets/images/mobileIcons.png"
-            alt="mobileIcons"
-            class="h-6 mix-blend-multiply"
-          />
-        </div>
-      </div>
+    <header class="fixed top-0 left-0 w-full py-4 font-inter">
       <div class="flex justify-between items-center">
         <div class="flex gap-3 ml-6 py-4 mb-2">
           <img
@@ -34,7 +24,7 @@
             alt="logo"
             class="mt-1 mix-blend-multiply"
           />
-          <span class="font-semibold text-2xl text-[#152536]">My Card</span>
+          <span class="font-semibold text-2xl text-[#152536]">My Order</span>
         </div>
         <div class="flex gap-2 mr-6 items-center">
           <img
@@ -65,14 +55,14 @@
       </div>
     </header>
 
-    <main class="shadow-md h-[664px] font-inter">
+    <main class="shadow-md h-[693px] font-inter">
       <div
         id="activeContent"
-        class="tab-content mt-[170px] overflow-y-auto max-h-[664px]"
+        class="tab-content mt-[136px] overflow-y-auto max-h-[693px]"
       ></div>
       <div
         id="completedContent"
-        class="tab-content mt-[170px] overflow-y-auto max-h-[664px] hidden"
+        class="tab-content mt-[136px] overflow-y-auto max-h-[693px] hidden"
       ></div>
     </main>
 
@@ -152,25 +142,28 @@
             <div>Wallet</div>
           </button>
         </a>
-        <button
-          class="footer-btn flex flex-col gap-[2px] items-center justify-center"
-          id="profileBtn"
-          onclick="setActive(this)"
-        >
-          <img
-            src="../assets/images/profile-fill.svg"
-            alt="Profile"
-            class="h-6 icon-img default-img"
-          />
-          <img
-            src="../assets/images/profile-select.png"
-            alt="Profile"
-            class="h-6 icon-img selected-img hidden"
-          />
-          <div>Profile</div>
-        </button>
+        <a href="../Login/profile/index.html">
+          <button
+            class="footer-btn flex flex-col gap-[2px] items-center justify-center"
+            id="profileBtn"
+            onclick="setActive(this)"
+          >
+            <img
+              src="../assets/images/profile-fill.svg"
+              alt="Profile"
+              class="h-6 icon-img default-img"
+            />
+            <img
+              src="../assets/images/profile-select.png"
+              alt="Profile"
+              class="h-6 icon-img selected-img hidden"
+            />
+            <div>Profile</div>
+          </button>
+        </a>
       </div>
     </footer>
+
     <script src="./script.js" type="module"></script>
   </body>
 </html>

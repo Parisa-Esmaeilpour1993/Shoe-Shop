@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="bg-gray-50">
+    <!-- Profile Card -->
+    <div class="profile-card mx-6 p-6 text-lg shadow-2xl rounded-xl mt-12">
+        <div id="logoutBtn" class="text-green-600 font-bold">Logout</div>
+      <div
+        class="profile-header flex flex-col gap-6 items-center justify-center text-center"
+      >
+        <img
+          id="profileImage"
+          src="https://via.placeholder.com/150"
+          alt="Profile Picture"
+          class="profile-image mt-4 rounded-full"
+        />
+        <div class="flex flex-col gap-2">
+          <h2 id="userName">Name</h2>
+          <p id="userEmail" class="text-gray">Email</p>
+          <p id="userPhone" class="text-gray">Phone Number</p>
+        </div>
+      </div>
+
+      <!-- Profile Info Sections -->
+      <div class="card-info flex flex-col gap-2">
+        <hr class="bg-black my-6">
+        <div class="flex gap-4 ">
+            <div class="section-header font-bold">Account Information</div>
+        
+          <div id="editProfileBtn" class="text-green-600">Edit Profile</div>
+        </div>
+       
+        
+        <div class="section-header font-bold">Delivery Address <span id="editAddressBtn" class="text-green-600 font-normal ml-4">Set Address</span></div>
+
+        <div class="flex gap-4">
+            <div class="section-header font-bold">Order History</div>
+        <div class="section-content text-green-600">View Orders</div>
+        </div>
+
+        <div class="flex gap-4">
+            <div class="section-header font-bold">Messages</div>
+        <div class="section-content text-green-600">Read Messages</div>
+        </div>
+
+        <div class="flex gap-4">
+            <div class="section-header font-bold">Gift cards</div>
+        <div class="section-content text-green-600">Show gifts </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+    <footer class="fixed bottom-0 w-full h-20 font-inter">
+      <div class="flex justify-evenly mt-3 py-2">
+        <a href="../../Home/home-index.html">
+          <button
+            class="footer-btn flex flex-col gap-[2px] items-center justify-center"
+            id="homeBtn"
+            onclick="setActive(this)"
+          >
+            <img
+              src="../../assets/images/home.png"
+              alt="Home"
+              class="h-6 icon-img default-img"
+            />
+            <img
+              src="../../assets/images/home-select.svg"
+              alt="Home"
+              class="h-6 icon-img selected-img hidden"
+            />
+            <div>Home</div>
+          </button>
+        </a>
+        <a href="../../Cart/index.html">
+          <button
+            class="footer-btn flex flex-col gap-[2px] items-center justify-center"
+            id="cartBtn"
+            onclick="setActive(this)"
+          >
+            <img
+              src="../../assets/images/cart.svg"
+              alt="Cart"
+              class="h-6 icon-img default-img"
+            />
+            <img
+              src="../../assets/images/cart-select.png"
+              alt="Cart"
+              class="h-6 icon-img selected-img hidden"
+            />
+            <div>Cart</div>
+          </button>
+        </a>
+        <a href="../../Order/index.html">
+          <button
+            class="footer-btn flex flex-col gap-[2px] items-center justify-center"
+            id="orderBtn"
+            onclick="setActive(this)"
+          >
+            <img
+              src="../../assets/images/Order.png"
+              alt="Orders"
+              class="h-6 icon-img default-img"
+            />
+            <img
+              src="../../assets/images/orders-select.png"
+              alt="Orders"
+              class="h-6 icon-img selected-img hidden"
+            />
+            <div>Orders</div>
+          </button>
+        </a>
+        <a href="../../Checkout/Paymount-Method/">
+          <button
+            class="footer-btn flex flex-col gap-[2px] items-center justify-center"
+            id="walletBtn"
+            onclick="setActive(this)"
+          >
+            <img
+              src="../../assets/images/wallet-fill.svg"
+              alt="Wallet"
+              class="h-6 icon-img default-img"
+            />
+            <img
+              src="../../assets/images/wallet-select.png"
+              alt="Wallet"
+              class="h-6 icon-img selected-img hidden"
+            />
+            <div>Wallet</div>
+          </button>
+        </a>
+        <button
+          class="footer-btn flex flex-col gap-[2px] items-center justify-center"
+          id="profileBtn"
+          onclick="setActive(this)"
+        >
+          <img
+            src="../../assets/images/profile-fill.svg"
+            alt="Profile"
+            class="h-6 icon-img default-img hidden"
+          />
+          <img
+            src="../../assets/images/profile-select.png"
+            alt="Profile"
+            class="h-6 icon-img selected-img"
+          />
+          <div>Profile</div>
+        </button>
+      </div>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>

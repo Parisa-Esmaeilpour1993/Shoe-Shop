@@ -1,3 +1,16 @@
+@font-face {
+  font-family: inter;
+  src: url("../assets/fonts/Inter/static/Inter_18pt-Medium.ttf");
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: inter;
+}
+
 .toast {
   position: fixed;
   top: 36px;

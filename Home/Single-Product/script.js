@@ -409,7 +409,9 @@ async function setActive(selectedButton) {
       }
 
       const data = await response.json();
+      console.log(data);
       newId = data.id;
+      console.log(newId);
 
       console.log("Product added to favorites:", data);
       toast("Product added to favorites!");

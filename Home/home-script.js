@@ -177,6 +177,12 @@ walletBtn.addEventListener("click", () => {
   window.location.href = "../Checkout/Paymount-Method/index.html";
 });
 
+// Redirects user to the appropriate page when a button is clicked
+const profileBtn = document.getElementById("profileBtn");
+profileBtn.addEventListener("click", () => {
+  window.location.href = "../Login/profile/index.html";
+});
+
 // Toggles the favorite button's state.
 function setInProcess(selectedButton) {
   const favoriteBtn = document.getElementById("favoriteBtn");
