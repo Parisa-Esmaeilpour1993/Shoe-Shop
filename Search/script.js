@@ -91,14 +91,14 @@ function renderProducts(products, searchTerm) {
      
       <div class="w-[182px] mb-4 flex flex-col gap-2">
         <div class="w-[182px] h-[182px] rounded-3xl bg-[#F3F3F3] p-5 relative">
-          <img src="${product.imageURL}" alt="${product.name}" />
+          <img src="${product.imageURL[0]}" alt="${product.name}" />
           <img
             src="../../assets/images/favorite.png"
             alt="favorite"
             class="absolute top-4 right-4 w-8"
           />
         </div>
-        <div class="w-[182px] h-6 text-xl text-[#152536] font-bold mt-3">
+        <div class="w-[182px] h-6 text-xl text-[#152536] font-bold mt-3 overflow-x-auto whitespace-nowrap">
           ${product.name}
         </div>
         <div class="flex justify-between w-36 items-center">

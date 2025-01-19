@@ -3,6 +3,10 @@
   src: url("../assets/fonts/Inter/static/Inter_18pt-Medium.ttf");
 }
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   font-family: inter;
 }

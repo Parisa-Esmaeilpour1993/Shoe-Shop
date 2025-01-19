@@ -174,8 +174,6 @@ async function markAsCompleted(orderId) {
 
   renderActiveData(activeOrders); // Update active orders view
 
-  console.log(completedOrders);
-
   renderCompletedData(completedOrders); // Update completed orders view
 }
 
