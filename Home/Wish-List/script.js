@@ -1,10 +1,6 @@
 // Base URL for API requests
 const baseUrl = "http://api.alikooshesh.ir:3000";
 
-//API Key
-const ApiKey =
-  "Esmaeilpour-124z6tKqZZyk0TgRXbrhW39BqvkAMdHfjzUMUUD3aPsSw3SbVAdgA0F1WAkMiDm8WpjWcR93dq0JPZDTbFhbHjOn6locjojMTz3v6lCS7OiuRJUW5IFI";
-
 //Function to get token from local storage
 function getToken() {
   const token = localStorage.getItem("token");
@@ -69,7 +65,7 @@ function renderProducts(products) {
   products.forEach((product) => {
     // Check if the product exists in favoriteItems
     const favoriteItem = favoriteItems.find(
-      (item) => item.someUniqueKey === product.someUniqueKey // Replace with your actual key for matching
+      (item) => item.someUniqueKey === product.someUniqueKey // Replace with actual key for matching
     );
 
     const productId = favoriteItem ? favoriteItem.id : product.id; // Use the favorite id if it exists

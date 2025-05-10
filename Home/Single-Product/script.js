@@ -286,6 +286,19 @@ addCartBtn.addEventListener("click", async () => {
   };
 
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  const isDuplicate = cartItems.some(
+    (item) =>
+      item.id === productInfo.id &&
+      item.size === productInfo.size &&
+      item.color === productInfo.color
+  );
+
+  if (isDuplicate) {
+    toast("This product with the same size and color is already in the cart.");
+    return;
+  }
+
   cartItems.push(productInfo);
 
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
